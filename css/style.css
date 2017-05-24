@@ -1,0 +1,1504 @@
+﻿/** CSS **/
+/**
+	Colors
+	Vermelho: #ce0000
+	Amarelo forte: #f9bf00
+	Amarelo claro: #f9dc75
+	Preto: #161413
+
+**/
+
+
+/***FORMATAÇÃO DA RESPONSIVIDADE PARA DISPOSITIVOS DESKTOP***/
+@media screen and (min-width: 1340px) and (max-width:2600px){
+ 
+body{
+	
+	background-color:#000;/*#09090f;*/
+	background-image:url('../imagens/body_background.jpg');
+	background-repeat:;
+	
+}
+header{
+	height:100px;
+	width:100%;
+	background-color:#161413;
+	
+}
+
+.logo_site{
+	width:185px;
+	height:98px;
+	margin-top:px;
+	margin-left:6px;
+	border-radius:5px;
+	float:left;
+}
+.site_logo{
+	width:185px;
+	height:100px;
+}
+#menu_horizontal{
+	width:62%;
+	height:45px;
+	background-color:;
+	margin-top:55px;
+	float:left;
+}
+.lstmenu_horizontal li{
+	display:inline-block;
+	list-style:none;
+	background:;
+	border-radius:5px;
+	margin-left:15px;
+}
+.lstmenu_horizontal li:hover{
+	transition:1s;
+	-moz-transition:1s;
+	-webkit-transition:1s;
+}
+.area_login{
+	width:323px;
+	height:100px;
+	background-color:;
+	margin-left: -10px;
+	float:left;
+}
+.frm_login{
+	margin-top:25px;
+	margin-left: px;
+	width:300px;
+	background-color:;
+}
+.inserir_campo{
+	font-size:15px;
+	font-family:verdana;
+	font-weight:bold;
+	color:#fff;
+}
+.input_usuario{
+	width:120px;
+	height:20px;
+}
+.input_senha{
+	width:120px;
+	height:20px;
+}
+.btn_ok{
+	border-radius:05px;
+	height:25px;
+	width:60px;
+	font-style:bold;
+}
+/**Formatação do Corpo do Index**/
+section{
+	width:1261px;
+	height:1002px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url('../imagens/.jpg');
+	border-radius:;
+}
+.div_oculta{
+	width:100px;
+	height:550px;
+	background-color:;
+	float:left;
+}
+#galeria{
+	width:1050px;
+	height:400px;
+	overflow:hidden;
+	display:block;
+	box-shadow: 0 0 8px #000;
+	position:relative;
+	float:left;
+}
+* { margin:0; padding:0;}
+#galeria #buttons{
+	display:none;
+	position:absolute;
+	margin:5px;
+	z-index:500;
+}
+#galeria #buttons a{
+	background:#f4d56e;
+	width:50px;
+	height:50px;
+	display:inline-block;
+	text-align:center;
+	line-height:50px;
+	font-family:Verdana;
+	color:#161413;
+	border-radius:5px;
+	margin-left:1px;
+	text-decoration:none;
+	opacity:0.8;
+}
+#galeria #buttons a:hover{
+	background:#f9bf00;
+	color:#ffffff;
+	opacity:1;
+}
+#galeria ul{
+	list-style:none;
+	display:table;
+	position:relative;
+}
+#galeria ul li{
+	width:1050px;
+	height:400px;
+	display:inline-block;
+	position:relative;
+}
+#galeria ul li img{
+	width:100%;
+	height:99%;
+}
+#galeria ul li span{
+	background: #f9dc75;
+	color:#161413;
+	border-radius:5px;
+	box-shadow: 1px 3px 0px 0px #f9bf00;
+	width:1010px;
+	display:table;
+	padding:10px;
+	opacity:0.9;
+	position:absolute;
+	bottom:0;
+	margin:10px;
+}
+#div_conteudo{
+	width:1050px;
+	height:600px;
+	background-color:;
+	float:left;
+}
+#menu_vertical{
+	width:139px;
+	height:auto;
+	background-color:#161413;
+	opacity:0.9;
+	float:left;
+	font-weight:bold;
+	border-radius: 0px 0px 0px 0px;
+	box-shadow: 0px 0px 0px 0px #f9dc75;
+}
+.lstmenu_vertical li{
+	width:139px;
+	height:20px;
+	list-style:none;
+	text-align:center;
+	font-family:arial;
+	color:#f9dc75;
+	font-weight:bold;
+	margin-left:0px;
+	margin-bottom: 5px;
+}
+.lstmenu_vertical li:hover{
+	background:#f9bf00;
+	color:#161413;
+	transition:0.5s;
+	-moz-transition:0.5s;
+	-webkit-transition:0.5s;
+}
+.div_divisor{
+	height:600px;
+	width:1px;
+	float:left;
+}
+#div_produtos{
+	width:910px;
+	height:auto;
+	background-color:#f9bf00;
+	border-radius: 0px 0px px 0px;
+	float:left;
+}
+.div_linha{
+	height:1px;
+	width:1050px;
+}
+.espacamento_horizontal{
+	width:900px;
+	height:50px;
+	margin-top:5px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:10px;
+	font-size:40px;
+	text-align:center;
+	color:#f9bf00;
+	background:#161413;
+}
+.produto{
+	width:270px;
+	height:250px;
+	background-color:#f4d56e;
+	margin-left:15px;
+	margin-top:15px;
+	margin-bottom:10px;
+	border-radius:5px;
+	float:left;
+	box-shadow: 2px 2px 2px 2px #302826;
+}
+.img_produto{
+	width:100px;
+	height:100px;
+	border-radius:15px;
+	background-color:;
+	margin-top:10px;
+	margin-left:85px;
+	box-shadow: 1px 3px 0px 0px #f9bf00;
+}
+.icon_produto{
+	width:100px;
+	height:100px;
+}
+.nome_produto{
+	width:235px;
+	height:25px;
+	background-color:;
+	margin-top:10px;
+	font-family:verdana;
+	text-align:center;
+	font-weight:bold;
+	font-size:20px;
+	margin-left:20px;
+	float:left;
+}
+.descricao_produto{
+	width:235px;
+	height:45px;
+	background-color:;
+	margin-top:5px;
+	font-family:verdana;
+	color:#190500;
+	text-align:center;
+	font-weight:bold;
+	margin-left:20px;
+	float:left;
+}
+.preco_produto{
+	width:235px;
+	height:25px;
+	background-color:;
+	margin-top:5px;
+	font-family:verdana;
+	color:#190500;
+	font-size:15px;
+	font-weight:bold;
+	margin-left:20px;
+	float:left;
+}
+.detalhes_produtos{
+	width:70px;
+	height:20px;
+	background-color:;
+	margin-top:3px;
+	margin-left:180px;
+	font-family:arial;
+	color:#190500;
+	font-weight:bold;
+	float:left;
+}
+/**Formatação dos Ícones das Redes Sociais**/
+.icon_social{
+	width:70px;
+	height:70px;
+}
+.facebook_icon{
+	width:70px;
+	height:70px;
+	margin-top:400px;
+	margin-left:1150px;
+	position:fixed;
+}
+.twitter_icon{
+	width:70px;
+	height:70px;
+	margin-top:470px;
+	margin-left:1150px;
+	position:fixed;
+}
+.youtube_icon{
+	width:70px;
+	height:70px;
+	margin-top:540px;
+	margin-left:1150px;
+	position:fixed;
+}
+
+.icon_social_rodape{
+	width:20px;
+	height:20px;
+	float:left;
+}
+.icon_social_rodape img{
+	width:20px;
+	height:20px;
+	float:left;
+}
+
+/**Formatação do Rodapé**/
+footer{
+	width:1261px;
+	height:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#rodape{
+	width:1051px;
+	height:120px;
+	background-color:#161413;
+	float:left;
+}
+.div_oculta_rodape{
+	width:100px;
+	height:10px;
+	background-color:;
+	float:left;
+}
+.div_oculta_rodape_esquerdo{
+	width:110px;
+	height:10px;
+	background-color:;
+	float:left;
+}
+.div_endereco{
+	width:430px;
+	height:120px;
+	font-family:verdana;
+	color:#fff;
+	font-weight:bold;
+	float:left;
+}
+.tbl_endereco{
+	width:400px;
+	height:120px;
+	margin-left:15px;
+	margin-right:15px;
+}
+.logo{
+	width:191px;
+	height:120px;
+	float:left;
+}
+.div_sac{
+	width:430px;
+	height:120px;
+	font-family:verdana;
+	color:#fff;
+	text-align:center;
+	font-weight:bold;
+	float:left;
+}
+.tbl_sac{
+	width:400px;
+	height:120px;
+	margin-left:15px;
+	margin-right:15px;
+}
+
+/**Formatação da Página Fale Conosco**/
+#div_fale_conosco{
+	width:1050px;
+	height:1000px;
+	margin-top:120px; 
+	background:;
+}
+.frmFaleConosco{
+	border:solid 3px #f9dc75;
+	border-radius:15px;
+
+	width:1020px;
+	margin-left:15px;
+	background:#f9bf00;
+}
+.tituloFormulario{
+	background-color:#161413;
+	border-radius:10px;
+	height:50px;
+	font-size:40px;
+	text-align:center;
+	color:#f9bf00;
+}
+.nome_campos{
+	background-color:#f9dc75;
+	border-radius:05px;
+	height:50px;
+	width:150px;
+	text-align:center;
+}
+.input_campo{
+	height:30px;
+	width:700px;
+	margin-left:10px;
+	border-radius:px;
+}
+.txtarea{
+	resize:none;
+	margin-left:10px;
+	border-radius:5px;
+}
+.btnresetsalva{
+	width:100px;
+	height:30px;
+	margin-left:10px;
+	border-radius:5px;
+}
+
+/**Molde Padrão das Páginas**/
+#conteudo_page{
+	width:1050px;
+	height:1000px;
+	background:;
+	float:left;
+}
+
+/**Formatação da Página Sobre Nós**/
+.img_sobre_nos{
+	width:1000px;
+	height:350px;
+	display:block;
+	margin-left:25px;
+	margin-right:25px;
+	margin-top:5px;
+	box-shadow: 0 0 8px #000;
+	position:relative;
+	float:left;
+}
+.img_historia{
+	width:1000px;
+	height:350px;
+}
+.historia_honker_burguer{
+	width:1000px;
+	height:635px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-top:5px;
+	background:#f9bf00;
+	box-shadow: 0 0 8px #000;
+	border-radius:10px;
+	position:relative;
+	float:left;
+}
+#titulo_historia{
+	width:850px;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	border-radius:10px;
+	font-size:40px;
+	text-align:center;
+	color:#f9bf00;
+	background-color:#161413;
+}
+#texto_historia{
+	width:950px;
+	height:555px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+	border-radius:5px;
+	background-color:#161413;
+}
+.historia_format{
+	width:900;
+	height:550;
+	margin-left:20px;
+	margin-right:20px;
+	font-size:20px;
+	text-align:justify;
+	color:#f9bf00;
+}
+
+.historia_format p{
+	text-indent: 40px;
+}
+
+/**Formatação da Página: Banda em Destaque**/
+.corpo_banda{
+	width:1000px;
+	height:930px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-top:5px;
+	background:#f9bf00;
+	box-shadow: 0 0 8px #000;
+	border-radius:3px;
+	position:relative;
+	float:left;
+}
+#titulo_banda{
+	width:850px;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	border-radius:10px;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:35px;
+	text-align:center;
+	color:;
+	background-color:#f9bf00;
+}
+.img_banda{
+	width:300px;
+	height:250px;
+	border-radius:5px;
+	background-color:#f9dc75;
+	margin-top:25px;
+	margin-left:25px;
+	box-shadow: 3px 3px 0px 0px #161413;
+	float:left;
+}
+.texto_banda{
+	width:630px;
+	height:250px;
+	border-radius:5px;
+	background-color:#161413;
+	margin-top:25px;
+	margin-left:25px;
+	box-shadow: 3px 3px 0px 0px #f9dc75;
+	
+	float:left;
+}
+.logo_banda{
+	width:400px;
+	height:340px;
+	margin-left:25px;
+	margin-top:25px;
+	background:#f9dc75;
+	opacity:0.8;
+	float:left;
+}
+.video_banda{
+	width:535px;
+	height:340px;
+	margin-top:25px;
+	margin-left:25px;
+	background:#161413;
+	float:left;
+}
+.icon_video{
+	width:120px;
+	height:100px;
+	margin-left:220px;
+	margin-top:100px;
+}
+
+/**Formatação da Página Nossos Ambientes**/
+.titulo_ambiente{
+	width:955px;
+	height:35px;
+	border-radius:5px;
+	margin-top:25px;
+	margin-left:20px;
+	box-shadow: 3px 3px 0px 0px #f9dc75;
+	font-size:25px;
+	text-align:center;
+	color:#f9bf00;
+	background:#161413;
+	
+}
+.titulo_ambiente p{
+	text-indent: 40px;
+}
+	
+.restaurante_img{
+	width:945px;
+	height:350px;
+	border-radius:5px;
+	background-color:#161413;
+	margin-top:25px;
+	margin-left:25px;
+	box-shadow: 3px 3px 0px 0px #f9dc75;
+	
+	
+}
+.img_restaurante{
+	width:945px;
+	height:350px;
+	border-radius:5px;
+}
+/**Formatação da Página Lanchê do Mês**/
+#lanche_mes_corpo{
+	width:1000px;
+	height:930px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-top:5px;
+	background:#f9bf00;
+	box-shadow: 0 0 8px #000;
+	border-radius:3px;
+	position:relative;
+	float:left;
+	overflow:auto;
+}
+.img_lanche_mes{
+	width:450px;
+	height:350px;
+	margin:auto;
+	margin-top:5px;
+	border-radius:5px;
+	box-shadow:1px 2px 1px 1px #000;
+	background-color:#fff;
+}
+.titulo_lanche_mes{
+	width:700px;
+	height:50px;
+	margin-top:10px;
+	margin:auto;
+	border-radius:3px;
+	background:#161413;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:35px;
+	text-align:center;
+	color:#fff;
+}
+.descrição_lanche_mes{
+	width:850px;
+	height:400px;
+	float:left;
+	margin-top:10px;
+	margin-left:50px;
+	border-radius:5px;
+	background-color:#f4d56e;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:20px;
+	color:#161413;
+	text-align:Center;
+}
+.info_lanche_mes{
+	width:700px;
+	height:50px;
+	margin:auto;
+	margin-top:10px;
+	border-radius:5px;
+	background:#161413;
+}
+.fotopromocao{
+	width:450px;
+	height:350px;
+	border-radius:5px;
+}
+.nome_lanche_mes{
+	width:520px;
+	height:50px;
+	margin:auto;
+	float:left;
+}
+.nome_lanche_mes p{
+	font-family:verdana;
+	text-align:center;
+	font-weight:bold;
+	font-size:40px;
+	color:#fff;
+}
+.div_precoPromocao {
+	width:90px;
+	height:50px;
+	float:left;
+}
+.div_precoPromocao p{
+	font-family:verdana;
+	margin-top:5px;
+	font-weight:bold;
+	font-size:28px;
+	color:#ce0000;
+}
+/**Formatação de Texto**/
+span{
+	text-align:center;
+	font-family:arial;
+	color:#ce0000;
+	font-weight:bold;
+}
+a{
+	text-decoration:none;
+	text-align:center;
+	color:#f9dc75;
+	font-weight:bold;
+}
+a:hover{
+	color:#ffffff;
+}
+}
+/**
+	Colors
+	Vermelho: #ce0000
+	Amarelo forte: #f9bf00
+	Amarelo claro: #f9dc75
+	Preto: #161413
+
+**/
+
+
+/***FORMATAÇÃO DA RESPONSIVIDADE PARA APARELHOS MOBILE***/
+@media screen and (min-width: 55px) and (max-width:1340px){
+body{
+	
+	background-color:#000;/*#09090f;*/
+	background-image:url('../imagens/body_background.jpg');
+	background-repeat:;
+	
+}
+header{
+	height:120px;
+	width:100%;
+	background-color:#161413;
+	float:left;
+}
+
+.logo_site{
+	width:130px;
+	height:98px;
+	margin-right:180px;
+	margin-top:10px;
+	border-radius:5px;
+	float:right;
+}
+.site_logo{
+	width:140px;
+	height:100px;
+}
+#menu_horizontal{
+	width:15%;
+	height:75px;
+	background-color:magenta;
+	margin-top:55px;
+	margin-left:10px;
+	float:left;
+}
+.lstmenu_horizontal li{
+	display:inline-block;
+	list-style:none;
+	background:;
+	border-radius:5px;
+	margin-left:15px;
+}
+.lstmenu_horizontal li:hover{
+	transition:1s;
+	-moz-transition:1s;
+	-webkit-transition:1s;
+}
+.area_login{
+	width:323px;
+	height:100px;
+	background-color:;
+	margin-left: -10px;
+	display:none;
+	float:left;
+}
+.frm_login{
+	margin-top:25px;
+	margin-left: px;
+	width:300px;
+	background-color:;
+}
+.inserir_campo{
+	font-size:15px;
+	font-family:verdana;
+	font-weight:bold;
+	color:#fff;
+}
+.input_usuario{
+	width:120px;
+	height:20px;
+}
+.input_senha{
+	width:120px;
+	height:20px;
+}
+.btn_ok{
+	border-radius:05px;
+	height:25px;
+	width:60px;
+	font-style:bold;
+}
+/**Formatação do Corpo do Index**/
+section{
+	width:100%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url('../imagens/.jpg');
+	margin-top:20px;
+	float:left;
+	position:static;
+}
+.div_oculta{
+	width:100%;
+	height:170px;
+	background-color:magenta;
+	float:left;
+	display:none;
+}
+#galeria{
+	width:100%;
+	height:200px;
+	margin-top:10px;
+	overflow:hidden;
+	display:block;
+	box-shadow: 0 0 8px #000;
+	position:relative;
+	float:left;
+	background-color:lime;
+}
+* { margin:0; padding:0;}
+#galeria #buttons{
+	display:none;
+	position:absolute;
+	margin:5px;
+	z-index:500;
+}
+#galeria #buttons a{
+	background:#f4d56e;
+	width:50px;
+	height:50px;
+	display:inline-block;
+	text-align:center;
+	line-height:50px;
+	font-family:Verdana;
+	color:#161413;
+	border-radius:5px;
+	margin-left:1px;
+	text-decoration:none;
+	opacity:0.8;
+	
+	display:none;
+}
+#galeria #buttons a:hover{
+	background:#f9bf00;
+	color:#ffffff;
+	opacity:1;
+}
+#galeria ul{
+	list-style:none;
+	display:table;
+	position:relative;
+	
+	display:none;
+}
+#galeria ul li{
+	width:;
+	height:400px;
+	display:inline-block;
+	position:relative;
+	
+	display:none;
+}
+#galeria ul li img{
+	width:100%;
+	height:99%;
+	
+	display:none;
+}
+#galeria ul li span{
+	background: #f9dc75;
+	color:#161413;
+	border-radius:5px;
+	box-shadow: 1px 3px 0px 0px #f9bf00;
+	width:1010px;
+	display:table;
+	padding:10px;
+	opacity:0.9;
+	position:absolute;
+	bottom:0;
+	margin:10px;
+	
+	display:none;
+}
+#div_conteudo{
+	width:100%;
+	height:auto;
+	margin-top:20px;
+	margin-bottom:1px;
+	float:left;
+}
+#menu_vertical{
+	width:35%;
+	height:auto;
+	background-color:#161413;
+	opacity:0.9;
+	float:left;
+	font-weight:bold;
+	border-radius: 0px 0px 0px 0px;
+	box-shadow: 0px 0px 0px 0px #f9dc75;
+}
+.lstmenu_vertical li{
+	height:20px;
+	list-style:none;
+	text-align:center;
+	font-family:arial;
+	color:#f9dc75;
+	font-weight:bold;
+	margin-left:0px;
+	margin-bottom: 5px;
+}
+.lstmenu_vertical li:hover{
+	background:#f9bf00;
+	color:#161413;
+	transition:0.5s;
+	-moz-transition:0.5s;
+	-webkit-transition:0.5s;
+}
+.div_divisor{
+	height:600px;
+	width:1px;
+	float:left;
+	display:none;
+}
+#div_produtos{
+	width:63%;
+	height:auto;
+	background-color:#f9bf00;
+	border-radius: 0px 0px px 0px;
+	float:left;
+}
+.div_linha{
+	height:1px;
+	width:100%;
+}
+.espacamento_horizontal{
+	width:98%;
+	height:50px;
+	margin-top:5px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:10px;
+	font-size:40px;
+	text-align:center;
+	color:#f9bf00;
+	background:#161413;
+}
+.produto{
+	width:90%;
+	height:250px;
+	background-color:#f4d56e;
+	margin-left:15px;
+	margin-top:5px;
+	margin-bottom:10px;
+	border-radius:5px;
+	float:left;
+	box-shadow: 2px 2px 2px 2px #302826;
+}
+.img_produto{
+	width:35%;
+	height:100px;
+	border-radius:15px;
+	background-color:;
+	margin:auto;
+	margin-top:10px;
+	box-shadow: 1px 3px 0px 0px #f9bf00;
+}
+.icon_produto{
+	width:100%;
+	height:100px;
+}
+.nome_produto{
+	width:235px;
+	height:25px;
+	background-color:;
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	font-family:verdana;
+	text-align:center;
+	font-weight:bold;
+	font-size:20px;
+	float:left;
+}
+.descricao_produto{
+	width:235px;
+	height:45px;
+	background-color:;
+	margin-top:5px;
+	font-family:verdana;
+	color:#190500;
+	text-align:center;
+	font-weight:bold;
+	float:left;
+}
+.preco_produto{
+	width:235px;
+	height:25px;
+	background-color:;
+	margin-top:5px;
+	font-family:verdana;
+	color:#190500;
+	font-size:15px;
+	font-weight:bold;
+	margin-left:20px;
+	float:left;
+}
+.detalhes_produtos{
+	width:70px;
+	height:20px;
+	background-color:;
+	margin-top:3px;
+	text-align:right;
+	margin-left:180px;
+	font-family:arial;
+	color:#190500;
+	font-weight:bold;
+	float:left;
+}
+/**Formatação dos Ícones das Redes Sociais**/
+.icon_social{
+	width:70px;
+	height:70px;
+	display:none;
+}
+.facebook_icon{
+	width:20px;
+	height:20px;
+}
+.facebook_icon img{
+	width:20px;
+	height:20px;
+}
+.twitter_icon{
+	width:20px;
+	height:20px;
+}
+.twitter_icon img{
+	width:20px;
+	height:20px;
+}
+.youtube_icon{
+	width:20px;
+	height:20px;
+}
+.youtube_icon img{
+	width:20px;
+	height:20px;
+}
+.icon_social_rodape_facebook{
+	width:20px;
+	height:20px;
+	margin-left:07px;
+}
+.icon_social_rodape img{
+	width:20px;
+	height:20px;
+}
+.icon_social_rodape_twitter{
+	width:20px;
+	height:20px;
+	margin-left:07px;
+}
+.icon_social_rodape_twitter img{
+	width:20px;
+	height:20px;
+}
+.icon_social_rodape_youtube{
+	width:20px;
+	height:20px;
+	margin-left:07px;
+}
+.icon_social_rodape_youtube img{
+	width:20px;
+	height:20px;
+}
+/**Formatação do Rodapé**/
+footer{
+	width:100%;
+	height:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#rodape{
+	width:100%;
+	height:120px;
+	margin-top:10px;
+	background-color:#161413;
+	float:left;
+}
+.div_oculta_rodape{
+	width:100px;
+	height:10px;
+	background-color:lime;
+	float:left;
+	display:none;
+}
+.div_oculta_rodape_esquerdo{
+	width:110px;
+	height:10px;
+	background-color:lime;
+	float:left;
+	display:none;
+}
+.div_endereco{
+	width:200px;
+	height:120px;
+	font-family:verdana;
+	font-size:12px;
+	color:#fff;
+	font-weight:bold;
+	float:left;
+}
+.tbl_endereco{
+	width:400px;
+	height:120px;
+	margin-left:15px;
+	margin-right:15px;
+}
+.logo{
+	width:140px;
+	height:100px;
+	margin-top:5px;
+	margin-left:-15px;
+	float:left;
+}
+.div_sac{
+	width:110px;
+	height:120px;
+	font-family:verdana;
+	font-size:09px;
+	color:#fff;
+	font-weight:bold;
+	float:left;
+}
+.tbl_sac{
+	width:100%;
+	height:120px;
+	margin-left:-30px;
+}
+
+/**Formatação da Página Fale Conosco**/
+#div_fale_conosco{
+	width:100%;
+	height:1000px;
+	margin-top:120px; 
+	background:;
+}
+.frmFaleConosco{
+	border:solid 3px #f9dc75;
+	border-radius:15px;
+
+	width:100%;
+	background:#f9bf00;
+}
+.tituloFormulario{
+	background-color:#161413;
+	border-radius:10px;
+	height:50px;
+	width:100%;
+	font-size:40px;
+	text-align:center;
+	color:#f9bf00;
+}
+.nome_campos{
+	background-color:#f9dc75;
+	border-radius:05px;
+	height:50px;
+	width:20%;
+	text-align:center;
+}
+.input_campo{
+	height:30px;
+	width:90%;
+	margin-left:10px;
+	border-radius:px;
+}
+.txtarea{
+	width:90%;
+	resize:none;
+	margin-left:10px;
+	border-radius:5px;
+}
+.btnresetsalva{
+	width:120px;
+	height:30px;
+	border-radius:5px;
+}
+
+/**Molde Padrão das Páginas**/
+#conteudo_page{
+	width:100%;
+	height:auto;
+	background:;
+	float:left;
+}
+
+/**Formatação da Página Sobre Nós**/
+.img_sobre_nos{
+	width:100%;
+	height:350px;
+	display:block;
+	margin-right:25px;
+	margin-top:5px;
+	box-shadow: 0 0 8px #000;
+	position:relative;
+	float:left;
+}
+.img_historia{
+	width:100%;
+	height:350px;
+}
+.historia_honker_burguer{
+	width:98%;
+	height:635px;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:5px;
+	background:#f9bf00;
+	box-shadow: 0 0 8px #000;
+	border-radius:10px;
+	position:relative;
+	float:left;
+}
+#titulo_historia{
+	width:100%;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:2px;
+	border-radius:10px;
+	font-size:40px;
+	text-align:center;
+	color:#f9bf00;
+	background-color:#161413;
+}
+#texto_historia{
+	width:95%;
+	height:555px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+	border-radius:5px;
+	background-color:#161413;
+}
+.historia_format{
+	width:900;
+	height:auto;
+	margin-left:20px;
+	margin-right:20px;
+	font-size:20px;
+	text-align:justify;
+	color:#f9bf00;
+}
+
+.historia_format p{
+	text-indent: 40px;
+}
+
+/**Formatação da Página: Banda em Destaque**/
+.corpo_banda{
+	width:100%;
+	height:auto;
+	margin-right:25px;
+	margin-top:5px;
+	background:#f9bf00;
+	box-shadow: 0 0 8px #000;
+	border-radius:3px;
+	position:relative;
+	float:left;
+}
+#titulo_banda{
+	width:100%;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	border-radius:10px;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:35px;
+	text-align:center;
+	color:;
+	background-color:#f9bf00;
+}
+.img_banda{
+	width:60%;
+	height:250px;
+	border-radius:5px;
+	background-color:#f9dc75;
+	margin-top:25px;
+	margin-left:100px;
+	box-shadow: 3px 3px 0px 0px #161413;
+	float:left;
+}
+.texto_banda{
+	width:90%;
+	height:auto;
+	border-radius:5px;
+	background-color:#161413;
+	margin-top:25px;
+	margin-left:25px;
+	box-shadow: 3px 3px 0px 0px #f9dc75;
+	
+	float:left;
+}
+.logo_banda{
+	width:95%;
+	height:340px;
+	margin-left:13px;
+	margin-top:25px;
+	background:#f9dc75;
+	opacity:0.8;
+	float:left;
+}
+.video_banda{
+	width:99%;
+	height:340px;
+	margin-top:25px;
+	margin-bottom:10px;
+	margin-left:2px;
+	background:#161413;
+	float:left;
+}
+.icon_video{
+	width:120px;
+	height:100px;
+	margin:auto;
+	display:none;
+}
+
+/**Formatação da Página Nossos Ambientes**/
+.titulo_ambiente{
+	width:100%;
+	height:35px;
+	border-radius:5px;
+	margin-top:25px;
+	box-shadow: 3px 3px 0px 0px #f9dc75;
+	font-size:25px;
+	text-align:center;
+	color:#f9bf00;
+	background:#161413;
+	
+}
+.titulo_ambiente p{
+	text-indent: 40px;
+}
+	
+.restaurante_img{
+	width:98%;
+	height:350px;
+	margin:auto;
+	border-radius:5px;
+	background-color:#161413;
+	margin-top:25px;
+	margin-bottom:5px;
+	box-shadow: 3px 3px 0px 0px #f9dc75;
+	
+	
+}
+.img_restaurante{
+	width:100%;
+	height:350px;
+	border-radius:5px;
+}
+/**Formatação da Página Lanchê do Mês**/
+#lanche_mes_corpo{
+	width:100%;
+	height:auto;
+	margin-right:25px;
+	margin-top:5px;
+	background:#f9bf00;
+	box-shadow: 0 0 8px #000;
+	border-radius:3px;
+	position:relative;
+	float:left;
+	overflow:auto;
+}
+.img_lanche_mes{
+	width:98%;
+	height:350px;
+	margin:auto;
+	border-radius:5px;
+	box-shadow:1px 1px 1px 1px #000;
+}
+.img_lanche_mes img{
+	width:100%;
+	height:100%;
+}
+.titulo_lanche_mes{
+	width:100%;
+	height:50px;
+	margin-top:10px;
+	margin:auto;
+	border-radius:3px;
+	background:#161413;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:35px;
+	text-align:center;
+	color:#fff;
+}
+.descrição_lanche_mes{
+	width:98%;
+	height:400px;
+	float:left;
+	margin-top:10px;
+	margin-left:5px;
+	border-radius:5px;
+	background-color:#f4d56e;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:20px;
+	color:#161413;
+	text-align:Center;
+}
+.info_lanche_mes{
+	width:90%;
+	height:50px;
+	margin:auto;
+	margin-bottom:15px;
+	margin-top:5px;
+	border-radius:5px;
+	background:#161413;
+}
+.fotopromocao{
+	width:100%;
+	height:350px;
+	background:#fff;
+	border-radius:5px;
+}
+.nome_lanche_mes{
+	width:75%;
+	height:50px;
+	margin:auto;
+	float:left;
+}
+.nome_lanche_mes p{
+	font-family:verdana;
+	text-align:center;
+	font-weight:bold;
+	font-size:35px;
+	color:#fff;
+}
+.div_precoPromocao {
+	width:10px;
+	height:50px;
+	float:left;
+}
+.div_precoPromocao p{
+	font-family:verdana;
+	margin-top:5px;
+	font-weight:bold;
+	font-size:28px;
+	color:#ce0000;
+}
+/**Formatação de Texto**/
+span{
+	text-align:center;
+	font-family:arial;
+	color:#ce0000;
+	font-weight:bold;
+}
+a{
+	text-decoration:none;
+	text-align:center;
+	color:#f9dc75;
+	font-weight:bold;
+}
+a:hover{
+	color:#ffffff;
+}
