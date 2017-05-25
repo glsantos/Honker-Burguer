@@ -342,7 +342,7 @@ section{
 /**Formatação do Rodapé**/
 footer{
 	width:1261px;
-	height:10px;
+	height:120px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -740,7 +740,7 @@ a:hover{
 
 
 /***FORMATAÇÃO DA RESPONSIVIDADE PARA APARELHOS MOBILE***/
-@media screen and (min-width: 55px) and (max-width:1340px){
+@media screen and (min-width: 320px) and (max-width:1340px){
 body{
 	
 	background-color:#000;/*#09090f;*/
@@ -749,29 +749,29 @@ body{
 	
 }
 header{
-	height:120px;
+	height:215px;
 	width:100%;
-	background-color:#161413;
+	background-color:lime;
 	float:left;
 }
 
 .logo_site{
 	width:130px;
 	height:98px;
-	margin-right:180px;
+	margin-right:500px;
 	margin-top:10px;
 	border-radius:5px;
 	float:right;
 }
 .site_logo{
-	width:140px;
-	height:100px;
+	width:300px;
+	height:200px;
 }
 #menu_horizontal{
-	width:15%;
-	height:75px;
+	width:12%;
+	height:115px;
 	background-color:magenta;
-	margin-top:55px;
+	margin-top:120px;
 	margin-left:10px;
 	float:left;
 }
@@ -841,7 +841,7 @@ section{
 }
 #galeria{
 	width:100%;
-	height:200px;
+	height:320px;
 	margin-top:10px;
 	overflow:hidden;
 	display:block;
@@ -922,9 +922,9 @@ section{
 	float:left;
 }
 #menu_vertical{
-	width:35%;
+	width:28%;
 	height:auto;
-	background-color:#161413;
+	background-color:#fff;
 	opacity:0.9;
 	float:left;
 	font-weight:bold;
@@ -942,7 +942,7 @@ section{
 	margin-bottom: 5px;
 }
 .lstmenu_vertical li:hover{
-	background:#f9bf00;
+	background:#161413;
 	color:#161413;
 	transition:0.5s;
 	-moz-transition:0.5s;
@@ -955,8 +955,9 @@ section{
 	display:none;
 }
 #div_produtos{
-	width:63%;
+	width:60%;
 	height:auto;
+	margin-left:50px;
 	background-color:#f9bf00;
 	border-radius: 0px 0px px 0px;
 	float:left;
@@ -978,8 +979,8 @@ section{
 	background:#161413;
 }
 .produto{
-	width:90%;
-	height:250px;
+	width:94%;
+	height:450px;
 	background-color:#f4d56e;
 	margin-left:15px;
 	margin-top:5px;
@@ -990,7 +991,7 @@ section{
 }
 .img_produto{
 	width:35%;
-	height:100px;
+	height:200px;
 	border-radius:15px;
 	background-color:;
 	margin:auto;
@@ -999,11 +1000,11 @@ section{
 }
 .icon_produto{
 	width:100%;
-	height:100px;
+	height:100%;
 }
 .nome_produto{
-	width:235px;
-	height:25px;
+	width:100%;
+	height:50px;
 	background-color:;
 	margin-top:10px;
 	margin-left:auto;
@@ -1011,14 +1012,15 @@ section{
 	font-family:verdana;
 	text-align:center;
 	font-weight:bold;
-	font-size:20px;
+	font-size:35px;
 	float:left;
 }
 .descricao_produto{
-	width:235px;
-	height:45px;
+	width:100%;
+	height:40px;
 	background-color:;
 	margin-top:5px;
+	font-size:20px;
 	font-family:verdana;
 	color:#190500;
 	text-align:center;
@@ -1026,24 +1028,24 @@ section{
 	float:left;
 }
 .preco_produto{
-	width:235px;
-	height:25px;
+	width:90%;
+	height:40px;
 	background-color:;
 	margin-top:5px;
 	font-family:verdana;
 	color:#190500;
-	font-size:15px;
+	font-size:24px;
 	font-weight:bold;
 	margin-left:20px;
 	float:left;
 }
 .detalhes_produtos{
-	width:70px;
-	height:20px;
+	width:100%;
+	height:50px;
 	background-color:;
 	margin-top:3px;
-	text-align:right;
-	margin-left:180px;
+	text-align:center;
+	font-size:40px;
 	font-family:arial;
 	color:#190500;
 	font-weight:bold;
@@ -1080,95 +1082,97 @@ section{
 	height:20px;
 }
 .icon_social_rodape_facebook{
-	width:20px;
-	height:20px;
-	margin-left:07px;
+	width:40px;
+	height:40px;
+	float:right;
 }
 .icon_social_rodape img{
-	width:20px;
-	height:20px;
+	width:100%;
+	height:100%;
 }
 .icon_social_rodape_twitter{
-	width:20px;
-	height:20px;
-	margin-left:07px;
+	width:40px;
+	height:40px;
+	float:right;
 }
 .icon_social_rodape_twitter img{
-	width:20px;
-	height:20px;
+	width:100%;
+	height:100%;
 }
 .icon_social_rodape_youtube{
-	width:20px;
-	height:20px;
-	margin-left:07px;
+	width:40px;
+	height:40px;
+	float:right;
 }
 .icon_social_rodape_youtube img{
-	width:20px;
-	height:20px;
+	width:100%;
+	height:100%;
 }
 /**Formatação do Rodapé**/
 footer{
 	width:100%;
-	height:10px;
+	height:120px;
+	background-color:;
 	margin-left:auto;
 	margin-right:auto;
 }
 #rodape{
+	height:150px;
 	width:100%;
-	height:120px;
-	margin-top:10px;
 	background-color:#161413;
+	margin-top:10px;
 	float:left;
 }
 .div_oculta_rodape{
 	width:100px;
 	height:10px;
-	background-color:lime;
 	float:left;
 	display:none;
 }
 .div_oculta_rodape_esquerdo{
 	width:110px;
 	height:10px;
-	background-color:lime;
+	margin-left:-20px;
 	float:left;
 	display:none;
 }
 .div_endereco{
-	width:200px;
+	width:240px;
 	height:120px;
 	font-family:verdana;
-	font-size:12px;
+	font-size:20px;
 	color:#fff;
 	font-weight:bold;
 	float:left;
 }
 .tbl_endereco{
-	width:400px;
-	height:120px;
-	margin-left:15px;
-	margin-right:15px;
+	width:280px;
+	height:100%;
+	text-align:center;
 }
 .logo{
-	width:140px;
-	height:100px;
-	margin-top:5px;
-	margin-left:-15px;
+	width:200px;
+	height:150px;
+	margin-left:95px;
 	float:left;
 }
+.logo img{
+	width:100%;
+	height:100%;
+}
 .div_sac{
-	width:110px;
-	height:120px;
+	width:200px;
+	height:150px;
 	font-family:verdana;
 	font-size:09px;
 	color:#fff;
 	font-weight:bold;
-	float:left;
+	margin-left:10px;
+	float:right;
 }
 .tbl_sac{
 	width:100%;
-	height:120px;
-	margin-left:-30px;
+	height:100%;
 }
 
 /**Formatação da Página Fale Conosco**/
