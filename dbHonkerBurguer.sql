@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `dbhonkerburguer20171sem` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `dbhonkerburguer20171sem`;
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dbhonkerburguer20171sem
 -- ------------------------------------------------------
--- Server version	5.7.10-log
+-- Server version	5.6.10-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -320,7 +320,7 @@ CREATE TABLE `tbllanchemes` (
 
 LOCK TABLES `tbllanchemes` WRITE;
 /*!40000 ALTER TABLE `tbllanchemes` DISABLE KEYS */;
-INSERT INTO `tbllanchemes` VALUES (6,3,6,'Desc de teste de tratamento de erro banco',0),(9,1,1,'aaa',0),(15,5,3,'h',0),(16,2,7,'XPTO',1),(18,4,5,'fg dfg dfg xxxxxx',1);
+INSERT INTO `tbllanchemes` VALUES (6,3,6,'Frango da Rapaziada',1),(9,1,6,'aaa',0),(15,5,3,'h',0),(16,2,7,'XPTO',0),(18,4,5,'fg dfg dfg xxxxxx',0);
 /*!40000 ALTER TABLE `tbllanchemes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -555,7 +555,7 @@ CREATE TABLE `tblusuario` (
   UNIQUE KEY `cpf_UNIQUE` (`cpf`),
   KEY `idNivelUsuario_idx` (`idNivelUsuario`),
   CONSTRAINT `fk_idNivelUsuario` FOREIGN KEY (`idNivelUsuario`) REFERENCES `tblnivelusuario` (`idNivelUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -646,6 +646,10 @@ SET character_set_client = utf8;
  1 AS `tituloHistoria`,
  1 AS `textoHistoria`*/;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping events for database 'dbhonkerburguer20171sem'
+--
 
 --
 -- Dumping routines for database 'dbhonkerburguer20171sem'
@@ -748,6 +752,32 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `selectNormal` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectNormal`()
+BEGIN
+
+	SELECT 	usu.nomeUsuario AS Usuario,
+			nvl.nivelUsuario AS Cargo,
+            usu.login AS Username
+    FROM tblusuario AS usu
+	INNER JOIN tblnivelusuario AS nvl
+    ON nvl.idNivelUsuario = usu.idNivelUsuario
+    ORDER BY usu.idUsuario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Final view structure for view `vm_consultalanchemes`
@@ -780,7 +810,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vm_exibesitelanchemes` AS select `lm`.`idLancheMes` AS `ID`,`h`.`nomeHamburguer` AS `Lanche`,`h`.`fotoHamburguer` AS `Foto`,`lm`.`descricao` AS `Descrição`,`h`.`preco` AS `Preço`,upper(`m`.`mes`) AS `Mês`,`lm`.`status` AS `Status` from ((`tblhamburguer` `h` join `tbllanchemes` `lm` on((`lm`.`idHamburguer` = `h`.`idHamburguer`))) join `tblmes` `m` on((`m`.`idMes` = `lm`.`idMes`))) where (`lm`.`status` = 1) order by `m`.`idMes` */;
+/*!50001 VIEW `vm_exibesitelanchemes` AS select `lm`.`idLancheMes` AS `ID`,`h`.`nomeHamburguer` AS `Lanche`,`h`.`fotoHamburguer` AS `Foto`,`lm`.`descricao` AS `Descrição`,`h`.`preco` AS `Preço`,ucase(`m`.`mes`) AS `Mês`,`lm`.`status` AS `Status` from ((`tblhamburguer` `h` join `tbllanchemes` `lm` on((`lm`.`idHamburguer` = `h`.`idHamburguer`))) join `tblmes` `m` on((`m`.`idMes` = `lm`.`idMes`))) where (`lm`.`status` = 1) order by `m`.`idMes` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -848,4 +878,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-22 16:45:07
+-- Dump completed on 2017-06-01 16:37:44
