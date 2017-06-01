@@ -76,8 +76,8 @@
 							<img src="cms/<?php echo($rs['Foto']);?>" class="img_lanche_mes"/>
 						</div>
 						<div class="descrição_lanche_mes">
-							<?php echo($rs['Descrição']);?>
-							<div class="div_precoPromocao">
+							<p><?php echo($rs['Descrição']);?></p>
+							<div class="div_precoPromocao" style="display:none">
 							<p><?php echo($rs['Preço']);?></p>
 						</div>
 						</div>
