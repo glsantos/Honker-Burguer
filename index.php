@@ -1,5 +1,9 @@
 <?php
+	require_once('cms/conexao.php');
 	
+	$hamburguer = "";
+	$foto = "";
+	$preco = "";
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -119,108 +123,36 @@
 				<div class="div_divisor"> </div>
 				<div id="div_produtos">
 					<div class="espacamento_horizontal">Produtos</div>
+					<?php 
+						
+						$sql = "SELECT * FROM vw_exibeprodutositehome;";
+						
+						$result = mysql_query($sql);
+						
+						while($rsconsulta = mysql_fetch_array($result)){
+							
+							$hamburguer = $rsconsulta['Produto'];
+							$foto = $rsconsulta['FotoProduto'];
+							$preco = $rsconsulta['Preço'];
+					?>
 					<div class="produto">
 						<div class="img_produto">
-							<img alt="icone_produto" src="imagens/burger.png" class="icon_produto"/>
+							<img alt="icone_produto" src="cms/<?php echo($foto)?>" class="icon_produto"/>
 						</div>
 						<div class="nome_produto">
-							<span>Hamburgão</span>
+							<span><?php echo($hamburguer);?></span>
 						</div>
 						<div class="descricao_produto">
 							Carne bovina ao molho barbecue
 						</div>
 						<div class="preco_produto">
-							Preço: <span>R$ 8,00</span>
+							Preço: <span>R$ <?php echo($preco)?></span>
 						</div>
 						<div class="detalhes_produtos">
 							Detalhes 
 						</div>
 					</div>
-					<div class="produto">
-						<div class="img_produto">
-							<img alt="icone_produto" src="imagens/burger.png" class="icon_produto"/>
-						</div>
-						<div class="nome_produto">
-							<span>Hamburgão</span>
-						</div>
-						<div class="descricao_produto">
-							Carne bovina ao molho barbecue
-						</div>
-						<div class="preco_produto">
-							Preço: <span>R$ 8,00</span>
-						</div>
-						<div class="detalhes_produtos">
-							Detalhes 
-						</div>
-					</div>
-					<div class="produto">
-						<div class="img_produto">
-							<img alt="icone_produto" src="imagens/burger.png" class="icon_produto"/>
-						</div>
-						<div class="nome_produto">
-							<span>Hamburgão</span>
-						</div>
-						<div class="descricao_produto">
-							Carne bovina ao molho barbecue
-						</div>
-						<div class="preco_produto">
-							Preço: <span>R$ 8,00</span>
-						</div>
-						<div class="detalhes_produtos">
-							Detalhes 
-						</div>
-					</div>
-					<div class="produto">
-						<div class="img_produto">
-							<img alt="icone_produto" src="imagens/burger.png" class="icon_produto"/>
-						</div>
-						<div class="nome_produto">
-							<span>Hamburgão</span>
-						</div>
-						<div class="descricao_produto">
-							Carne bovina ao molho barbecue
-						</div>
-						<div class="preco_produto">
-							Preço: <span>R$ 8,00</span>
-						</div>
-						<div class="detalhes_produtos">
-							Detalhes 
-						</div>
-					</div>
-					<div class="produto">
-						<div class="img_produto">
-							<img alt="icone_produto" src="imagens/burger.png" class="icon_produto"/>
-						</div>
-						<div class="nome_produto">
-							<span>Hamburgão</span>
-						</div>
-						<div class="descricao_produto">
-							Carne bovina ao molho barbecue
-						</div>
-						<div class="preco_produto">
-							Preço: <span>R$ 8,00</span>
-						</div>
-						<div class="detalhes_produtos">
-							Detalhes
-						</div>
-					</div>
-					<div class="produto">
-						<div class="img_produto">
-							<img  alt="icone_produto" src="imagens/burger.png" class="icon_produto"/>
-						</div>
-						<div class="nome_produto">
-							<span>Hamburgão</span>
-						</div>
-						<div class="descricao_produto">
-							Carne bovina ao molho barbecue
-						</div>
-						<div class="preco_produto">
-							Preço: <span>R$ 8,00</span>
-						</div>
-						<div class="detalhes_produtos">
-							Detalhes 
-						</div>
-					</div>
+					<?php }?>
 				</div>
 			</div>
 			<div class="facebook_icon">

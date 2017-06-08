@@ -211,7 +211,7 @@ CREATE TABLE `tblfaleconosco` (
 
 LOCK TABLES `tblfaleconosco` WRITE;
 /*!40000 ALTER TABLE `tblfaleconosco` DISABLE KEYS */;
-INSERT INTO `tblfaleconosco` VALUES (1,'Cliente01',NULL,'(99) 91234-5678','email@terra.com.br','Pedreiro','M','Nao tenho','to fazendo o facebook','Achei os lanches muito bons sabe'),(25,'Fran','','11 97961-1772','fran@gmail.com','Assistente de DP','F','','',' Site top de +++');
+INSERT INTO `tblfaleconosco` VALUES (25,'Fran','','11 97961-1772','fran@gmail.com','Assistente de DP','F','','',' Site top de +++');
 /*!40000 ALTER TABLE `tblfaleconosco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,13 +225,16 @@ DROP TABLE IF EXISTS `tblhamburguer`;
 CREATE TABLE `tblhamburguer` (
   `idHamburguer` smallint(6) NOT NULL,
   `idTipoHamburguer` tinyint(4) NOT NULL,
+  `idSubTipoHamburguer` int(11) NOT NULL,
   `nomeHamburguer` varchar(45) NOT NULL,
   `fotoHamburguer` varchar(55) NOT NULL,
-  `preco` float NOT NULL,
+  `preco` float(5,2) NOT NULL,
   PRIMARY KEY (`idHamburguer`),
   UNIQUE KEY `nomeHamburguer_UNIQUE` (`nomeHamburguer`),
   UNIQUE KEY `fotoHamburguer_UNIQUE` (`fotoHamburguer`),
   KEY `idTipoHamburguer_idx` (`idTipoHamburguer`),
+  KEY `fk_idSubTipoHamburguer_idx` (`idTipoHamburguer`),
+  KEY `fk_idSubTipoHamburguer_idx1` (`idSubTipoHamburguer`),
   CONSTRAINT `fk_idTipoHamburguer` FOREIGN KEY (`idTipoHamburguer`) REFERENCES `tbltipohamburguer` (`idTipoHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -242,7 +245,7 @@ CREATE TABLE `tblhamburguer` (
 
 LOCK TABLES `tblhamburguer` WRITE;
 /*!40000 ALTER TABLE `tblhamburguer` DISABLE KEYS */;
-INSERT INTO `tblhamburguer` VALUES (1,3,'Honk Fish','arquivo/peixe01.png',5.99),(2,1,'Honk Papelão','arquivo/bovino01.jpg',4.99),(3,2,'Honk Chicken','arquivo/frango01.png',12.99),(4,5,'Honk Tofu ','arquivo/tofu01.jpg',11.99),(5,4,'Honk Bacon','arquivo/bacon01.png',17.99);
+INSERT INTO `tblhamburguer` VALUES (1,1,1,'Honk Fish','arquivo/peixe01.png',5.99),(2,1,1,'Honk Papelão','arquivo/bovino01.jpg',4.99),(3,1,1,'Honk Chicken','arquivo/frango01.png',12.99),(4,1,1,'Honk Tofu ','arquivo/tofu01.jpg',11.99),(5,1,1,'Honk Bacon','arquivo/bacon01.png',17.99);
 /*!40000 ALTER TABLE `tblhamburguer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,32 +270,6 @@ CREATE TABLE `tblingrediente` (
 LOCK TABLES `tblingrediente` WRITE;
 /*!40000 ALTER TABLE `tblingrediente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tblingrediente` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tblingrediente_hamburguer`
---
-
-DROP TABLE IF EXISTS `tblingrediente_hamburguer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tblingrediente_hamburguer` (
-  `idHamburguer` smallint(6) NOT NULL,
-  `idIngrediente` smallint(6) NOT NULL,
-  KEY `idHamburguer_idx` (`idHamburguer`),
-  KEY `idIngrediente_idx` (`idIngrediente`),
-  CONSTRAINT `fk_idHamburguerIngrediente_Hamburguer` FOREIGN KEY (`idHamburguer`) REFERENCES `tblhamburguer` (`idHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_idIngrediente` FOREIGN KEY (`idIngrediente`) REFERENCES `tblingrediente` (`idIngrediente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tblingrediente_hamburguer`
---
-
-LOCK TABLES `tblingrediente_hamburguer` WRITE;
-/*!40000 ALTER TABLE `tblingrediente_hamburguer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblingrediente_hamburguer` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -484,6 +461,32 @@ INSERT INTO `tblsobrehamburgueria` VALUES (1,'arquivo/body.jpg','História da Ho
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tblsubtipo`
+--
+
+DROP TABLE IF EXISTS `tblsubtipo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tblsubtipo` (
+  `idSubTipoHamburguer` int(11) NOT NULL AUTO_INCREMENT,
+  `idTipoHamburguer` tinyint(4) NOT NULL,
+  `nomeSubTipoHamburguer` varchar(100) NOT NULL,
+  PRIMARY KEY (`idSubTipoHamburguer`),
+  KEY `fk_idTipoHamburguerSUB_idx` (`idTipoHamburguer`),
+  CONSTRAINT `fk_idTipoHamburguerSUB` FOREIGN KEY (`idTipoHamburguer`) REFERENCES `tbltipohamburguer` (`idTipoHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tblsubtipo`
+--
+
+LOCK TABLES `tblsubtipo` WRITE;
+/*!40000 ALTER TABLE `tblsubtipo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tblsubtipo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tblsubtipohamburguer`
 --
 
@@ -491,11 +494,13 @@ DROP TABLE IF EXISTS `tblsubtipohamburguer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tblsubtipohamburguer` (
-  `idSubCategoria` int(11) NOT NULL AUTO_INCREMENT,
-  `subCategoria` varchar(45) DEFAULT NULL,
-  `idCategoria` tinyint(4) NOT NULL,
-  PRIMARY KEY (`idSubCategoria`,`idCategoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idSubTipoHamburguer` int(11) NOT NULL AUTO_INCREMENT,
+  `idTipoHamburguer` tinyint(4) NOT NULL,
+  `nomeSubTipoHamburguer` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idSubTipoHamburguer`,`idTipoHamburguer`),
+  KEY `fk_subtipohamburguer_idx` (`idTipoHamburguer`),
+  CONSTRAINT `fk_subtipohamburguer` FOREIGN KEY (`idTipoHamburguer`) REFERENCES `tbltipohamburguer` (`idTipoHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -504,6 +509,7 @@ CREATE TABLE `tblsubtipohamburguer` (
 
 LOCK TABLES `tblsubtipohamburguer` WRITE;
 /*!40000 ALTER TABLE `tblsubtipohamburguer` DISABLE KEYS */;
+INSERT INTO `tblsubtipohamburguer` VALUES (1,1,'Integral'),(2,1,'Verde'),(3,1,'Light'),(4,1,'Fitness'),(5,2,'No Prato'),(6,2,'1k'),(7,2,'Gordinhos Burguer'),(8,2,'All The Burguer'),(9,3,'No Prato'),(10,3,'Especial'),(11,3,'Simples'),(12,3,'Double');
 /*!40000 ALTER TABLE `tblsubtipohamburguer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -564,7 +570,7 @@ CREATE TABLE `tblusuario` (
 
 LOCK TABLES `tblusuario` WRITE;
 /*!40000 ALTER TABLE `tblusuario` DISABLE KEYS */;
-INSERT INTO `tblusuario` VALUES (2,1,'Gabriel Santos','glsantos','123','gabriel._.lima@hotmail.com','373.663.318-13'),(3,3,'Francielly Martins','fmartins','123','fran@gmail.com','356.538.218-39'),(25,1,'Marcel teixeira 123','marcelnt','123','marcel@teste.com','1234567897987');
+INSERT INTO `tblusuario` VALUES (2,1,'Gabriel Santos','glsantos','123','gabriel._.lima@hotmail.com','373.663.318-13'),(3,3,'Francielly Martins','fmartins','123','fran@gmail.com','356.538.218-39'),(25,2,'Marcel teixeira 123','marcelnt','123','marcel@teste.com','1234567897987');
 /*!40000 ALTER TABLE `tblusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -617,6 +623,23 @@ SET character_set_client = utf8;
  1 AS `Mês`,
  1 AS `Descrição`,
  1 AS `Status`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_exibeprodutositehome`
+--
+
+DROP TABLE IF EXISTS `vw_exibeprodutositehome`;
+/*!50001 DROP VIEW IF EXISTS `vw_exibeprodutositehome`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_exibeprodutositehome` AS SELECT 
+ 1 AS `idProduto`,
+ 1 AS `Produto`,
+ 1 AS `FotoProduto`,
+ 1 AS `CategoriaProduto`,
+ 1 AS `SubCategoriaProduto`,
+ 1 AS `Preço`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -834,6 +857,24 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vw_exibeprodutositehome`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_exibeprodutositehome`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_exibeprodutositehome` AS select `h`.`idHamburguer` AS `idProduto`,`h`.`nomeHamburguer` AS `Produto`,`h`.`fotoHamburguer` AS `FotoProduto`,`t`.`categoriaHamburguer` AS `CategoriaProduto`,`st`.`nomeSubTipoHamburguer` AS `SubCategoriaProduto`,`h`.`preco` AS `Preço` from ((`tblhamburguer` `h` join `tbltipohamburguer` `t` on((`t`.`idTipoHamburguer` = `h`.`idTipoHamburguer`))) join `tblsubtipohamburguer` `st` on((`st`.`idSubTipoHamburguer` = `h`.`idSubTipoHamburguer`))) order by rand() */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vw_exibesiteambientes`
 --
 
@@ -878,4 +919,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-01 16:37:44
+-- Dump completed on 2017-06-08 17:01:06
