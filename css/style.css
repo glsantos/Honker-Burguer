@@ -170,7 +170,7 @@ section{
 }
 #div_conteudo{
 	width:1050px;
-	height:600px;
+	height:auto;
 	background-color:;
 	float:left;
 }

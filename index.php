@@ -4,6 +4,17 @@
 	$hamburguer = "";
 	$foto = "";
 	$preco = "";
+	$categoria = "";
+	$subcategoria = "";
+	$idSubCategoria = "";
+	$querysql = "SELECT * FROM vw_exibeprodutositehome";
+	
+	if(isset($_GET['idCategoria'])){
+		
+		$CategoriaID = $_GET['idCategoria']; 
+		echo($CategoriaID);
+		$querysql = "SELECT * FROM vw_exibeprodutositehome WHERE idCategoria = ".$CategoriaID.";";
+	}
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -115,25 +126,39 @@
 			<div id="div_conteudo">
 				<div class="div_linha"> </div>
 				<div id="menu_vertical">
+					
 					<ul class="lstmenu_vertical">
-						<li>Item 1</li>
-						<li>Item 2</li>
-					</ul>
-				</div>
-				<div class="div_divisor"> </div>
-				<div id="div_produtos">
-					<div class="espacamento_horizontal">Produtos</div>
-					<?php 
+					
+						<?php
 						
-						$sql = "SELECT * FROM vw_exibeprodutositehome;";
+						$sql = "SELECT * FROM vw_exibecategoriamenu";
 						
 						$result = mysql_query($sql);
 						
 						while($rsconsulta = mysql_fetch_array($result)){
 							
-							$hamburguer = $rsconsulta['Produto'];
-							$foto = $rsconsulta['FotoProduto'];
-							$preco = $rsconsulta['Preço'];
+							$idCategoria = $rsconsulta['idCategoria'];
+							$categoria = $rsconsulta['Categoria'];
+						?>
+						<li><a href="http://localhost/20171sem/inf3t/Lima/PROJETO/index.php?idCategoria=<?php echo($idCategoria);?>"><?php echo($categoria);?></a></li>
+						<?php
+						}
+						?>
+					</ul>
+			
+				</div>
+				<div class="div_divisor"> </div>
+				<div id="div_produtos">
+					<div class="espacamento_horizontal">Produtos</div>
+					<?php 
+							$sql = $querysql;
+							$result = mysql_query($sql);
+							
+							while($rsconsulta = mysql_fetch_array($result)){
+								
+								$hamburguer = $rsconsulta['Produto'];
+								$foto = $rsconsulta['FotoProduto'];
+								$preco = $rsconsulta['Preço'];
 					?>
 					<div class="produto">
 						<div class="img_produto">
@@ -152,7 +177,7 @@
 							Detalhes 
 						</div>
 					</div>
-					<?php }?>
+						<?php }?>
 				</div>
 			</div>
 			<div class="facebook_icon">

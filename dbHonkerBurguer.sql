@@ -232,10 +232,8 @@ CREATE TABLE `tblhamburguer` (
   PRIMARY KEY (`idHamburguer`),
   UNIQUE KEY `nomeHamburguer_UNIQUE` (`nomeHamburguer`),
   UNIQUE KEY `fotoHamburguer_UNIQUE` (`fotoHamburguer`),
-  KEY `idTipoHamburguer_idx` (`idTipoHamburguer`),
   KEY `fk_idSubTipoHamburguer_idx` (`idTipoHamburguer`),
-  KEY `fk_idSubTipoHamburguer_idx1` (`idSubTipoHamburguer`),
-  CONSTRAINT `fk_idTipoHamburguer` FOREIGN KEY (`idTipoHamburguer`) REFERENCES `tbltipohamburguer` (`idTipoHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_idSubTipoHamburguer_idx1` (`idSubTipoHamburguer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -245,7 +243,7 @@ CREATE TABLE `tblhamburguer` (
 
 LOCK TABLES `tblhamburguer` WRITE;
 /*!40000 ALTER TABLE `tblhamburguer` DISABLE KEYS */;
-INSERT INTO `tblhamburguer` VALUES (1,1,1,'Honk Fish','arquivo/peixe01.png',5.99),(2,1,1,'Honk Papelão','arquivo/bovino01.jpg',4.99),(3,1,1,'Honk Chicken','arquivo/frango01.png',12.99),(4,1,1,'Honk Tofu ','arquivo/tofu01.jpg',11.99),(5,1,1,'Honk Bacon','arquivo/bacon01.png',17.99);
+INSERT INTO `tblhamburguer` VALUES (1,1,1,'Honk Fish','arquivo/peixe01.png',5.99),(3,3,1,'Honk Chicken','arquivo/frango01.png',12.99),(6,2,2,' Honk Down','arquivo/mcd1.png',21.00),(7,2,3,'Honk Now','arquivo/mcd5.png',2.00),(8,3,4,'Honk Actually','arquivo/mcd13.png',3.00),(9,4,5,'Honk Bridget','arquivo/hamburger-slide1.png',5.00),(10,5,6,'Honk Mosca','arquivo/ezequiel.jpg',6.00);
 /*!40000 ALTER TABLE `tblhamburguer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,7 +295,6 @@ CREATE TABLE `tbllanchemes` (
 
 LOCK TABLES `tbllanchemes` WRITE;
 /*!40000 ALTER TABLE `tbllanchemes` DISABLE KEYS */;
-INSERT INTO `tbllanchemes` VALUES (6,3,6,'Frango da Rapaziada',1),(9,1,6,'aaa',0),(15,5,3,'h',0),(16,2,7,'XPTO',0),(18,4,5,'fg dfg dfg xxxxxx',0);
 /*!40000 ALTER TABLE `tbllanchemes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -402,7 +399,6 @@ CREATE TABLE `tblpromocao` (
 
 LOCK TABLES `tblpromocao` WRITE;
 /*!40000 ALTER TABLE `tblpromocao` DISABLE KEYS */;
-INSERT INTO `tblpromocao` VALUES (3,3,4.99,1),(19,1,3.99,1),(24,2,5.99,0),(26,4,1.58,1);
 /*!40000 ALTER TABLE `tblpromocao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -608,6 +604,19 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `vw_exibecategoriamenu`
+--
+
+DROP TABLE IF EXISTS `vw_exibecategoriamenu`;
+/*!50001 DROP VIEW IF EXISTS `vw_exibecategoriamenu`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_exibecategoriamenu` AS SELECT 
+ 1 AS `idCategoria`,
+ 1 AS `Categoria`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `vw_exibeconsultalanchemes`
 --
 
@@ -638,6 +647,7 @@ SET character_set_client = utf8;
  1 AS `Produto`,
  1 AS `FotoProduto`,
  1 AS `CategoriaProduto`,
+ 1 AS `idCategoria`,
  1 AS `SubCategoriaProduto`,
  1 AS `Preço`*/;
 SET character_set_client = @saved_cs_client;
@@ -668,6 +678,20 @@ SET character_set_client = utf8;
  1 AS `fotoHistoria`,
  1 AS `tituloHistoria`,
  1 AS `textoHistoria`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_exibesubcategoriamenu`
+--
+
+DROP TABLE IF EXISTS `vw_exibesubcategoriamenu`;
+/*!50001 DROP VIEW IF EXISTS `vw_exibesubcategoriamenu`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_exibesubcategoriamenu` AS SELECT 
+ 1 AS `idSubCategoria`,
+ 1 AS `idCategoria`,
+ 1 AS `SubCategoria`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -839,6 +863,24 @@ DELIMITER ;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vw_exibecategoriamenu`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_exibecategoriamenu`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_exibecategoriamenu` AS select `h`.`idTipoHamburguer` AS `idCategoria`,`h`.`categoriaHamburguer` AS `Categoria` from `tbltipohamburguer` `h` order by `h`.`categoriaHamburguer` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vw_exibeconsultalanchemes`
 --
 
@@ -869,7 +911,7 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_exibeprodutositehome` AS select `h`.`idHamburguer` AS `idProduto`,`h`.`nomeHamburguer` AS `Produto`,`h`.`fotoHamburguer` AS `FotoProduto`,`t`.`categoriaHamburguer` AS `CategoriaProduto`,`st`.`nomeSubTipoHamburguer` AS `SubCategoriaProduto`,`h`.`preco` AS `Preço` from ((`tblhamburguer` `h` join `tbltipohamburguer` `t` on((`t`.`idTipoHamburguer` = `h`.`idTipoHamburguer`))) join `tblsubtipohamburguer` `st` on((`st`.`idSubTipoHamburguer` = `h`.`idSubTipoHamburguer`))) order by rand() */;
+/*!50001 VIEW `vw_exibeprodutositehome` AS select `h`.`idHamburguer` AS `idProduto`,`h`.`nomeHamburguer` AS `Produto`,`h`.`fotoHamburguer` AS `FotoProduto`,`t`.`categoriaHamburguer` AS `CategoriaProduto`,`t`.`idTipoHamburguer` AS `idCategoria`,`st`.`nomeSubTipoHamburguer` AS `SubCategoriaProduto`,`h`.`preco` AS `Preço` from ((`tblhamburguer` `h` join `tbltipohamburguer` `t` on((`t`.`idTipoHamburguer` = `h`.`idTipoHamburguer`))) join `tblsubtipohamburguer` `st` on((`st`.`idSubTipoHamburguer` = `h`.`idSubTipoHamburguer`))) order by rand() */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -909,6 +951,24 @@ DELIMITER ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_exibesubcategoriamenu`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_exibesubcategoriamenu`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_exibesubcategoriamenu` AS select `st`.`idSubTipoHamburguer` AS `idSubCategoria`,`st`.`idTipoHamburguer` AS `idCategoria`,`st`.`nomeSubTipoHamburguer` AS `SubCategoria` from `tblsubtipohamburguer` `st` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -919,4 +979,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-08 17:01:06
+-- Dump completed on 2017-06-09 16:59:19
