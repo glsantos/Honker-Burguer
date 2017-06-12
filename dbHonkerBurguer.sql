@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `dbhonkerburguer20171sem` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `dbhonkerburguer20171sem`;
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dbhonkerburguer20171sem
 -- ------------------------------------------------------
--- Server version	5.6.10-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,9 +32,7 @@ CREATE TABLE `tblbanda` (
   `fotoBanda` varchar(45) NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`idBanda`),
-  UNIQUE KEY `idHamburguer_UNIQUE` (`idHamburguer`),
-  UNIQUE KEY `logoBanda_UNIQUE` (`logoBanda`),
-  CONSTRAINT `fk_idHamburguerBanda` FOREIGN KEY (`idHamburguer`) REFERENCES `tblhamburguer` (`idHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  UNIQUE KEY `logoBanda_UNIQUE` (`logoBanda`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -223,7 +221,7 @@ DROP TABLE IF EXISTS `tblhamburguer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tblhamburguer` (
-  `idHamburguer` smallint(6) NOT NULL,
+  `idHamburguer` smallint(6) NOT NULL AUTO_INCREMENT,
   `idTipoHamburguer` tinyint(4) NOT NULL,
   `idSubTipoHamburguer` int(11) NOT NULL,
   `nomeHamburguer` varchar(45) NOT NULL,
@@ -234,7 +232,7 @@ CREATE TABLE `tblhamburguer` (
   UNIQUE KEY `fotoHamburguer_UNIQUE` (`fotoHamburguer`),
   KEY `fk_idSubTipoHamburguer_idx` (`idTipoHamburguer`),
   KEY `fk_idSubTipoHamburguer_idx1` (`idSubTipoHamburguer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,31 +241,8 @@ CREATE TABLE `tblhamburguer` (
 
 LOCK TABLES `tblhamburguer` WRITE;
 /*!40000 ALTER TABLE `tblhamburguer` DISABLE KEYS */;
-INSERT INTO `tblhamburguer` VALUES (1,1,1,'Honk Fish','arquivo/peixe01.png',5.99),(3,3,1,'Honk Chicken','arquivo/frango01.png',12.99),(6,2,2,' Honk Down','arquivo/mcd1.png',21.00),(7,2,3,'Honk Now','arquivo/mcd5.png',2.00),(8,3,4,'Honk Actually','arquivo/mcd13.png',3.00),(9,4,5,'Honk Bridget','arquivo/hamburger-slide1.png',5.00),(10,5,6,'Honk Mosca','arquivo/ezequiel.jpg',6.00);
+INSERT INTO `tblhamburguer` VALUES (7,2,3,'Honk Now','arquivo/mcd5.png',2.00),(8,3,4,'Honk Actually','arquivo/mcd13.png',3.00),(9,4,5,'Honk Bridget','arquivo/hamburger-slide1.png',5.00),(10,5,6,'Honk Mosca','arquivo/ezequiel.jpg',6.00),(12,1,1,'Honk XPTO','arquivo/dogfrango.png',1.00);
 /*!40000 ALTER TABLE `tblhamburguer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tblingrediente`
---
-
-DROP TABLE IF EXISTS `tblingrediente`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tblingrediente` (
-  `idIngrediente` smallint(6) NOT NULL,
-  `nomeIngrediente` varchar(55) NOT NULL,
-  PRIMARY KEY (`idIngrediente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tblingrediente`
---
-
-LOCK TABLES `tblingrediente` WRITE;
-/*!40000 ALTER TABLE `tblingrediente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tblingrediente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -283,9 +258,7 @@ CREATE TABLE `tbllanchemes` (
   `idMes` int(11) NOT NULL,
   `descricao` text NOT NULL,
   `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idLancheMes`),
-  UNIQUE KEY `idHamburguer_UNIQUE` (`idHamburguer`),
-  CONSTRAINT `fk_idHamburguerLancheMes` FOREIGN KEY (`idHamburguer`) REFERENCES `tblhamburguer` (`idHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`idLancheMes`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -387,9 +360,7 @@ CREATE TABLE `tblpromocao` (
   `idHamburguer` smallint(6) NOT NULL,
   `preco` float NOT NULL,
   `status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idPromocao`),
-  UNIQUE KEY `idHamburguer_UNIQUE` (`idHamburguer`),
-  CONSTRAINT `fk_idHamburguer` FOREIGN KEY (`idHamburguer`) REFERENCES `tblhamburguer` (`idHamburguer`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`idPromocao`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -604,6 +575,25 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `vw_consultaproduto`
+--
+
+DROP TABLE IF EXISTS `vw_consultaproduto`;
+/*!50001 DROP VIEW IF EXISTS `vw_consultaproduto`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_consultaproduto` AS SELECT 
+ 1 AS `idProduto`,
+ 1 AS `idCategoria`,
+ 1 AS `idSubCategoria`,
+ 1 AS `Produto`,
+ 1 AS `Categoria`,
+ 1 AS `SubCategoria`,
+ 1 AS `Foto`,
+ 1 AS `Preço`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary view structure for view `vw_exibecategoriamenu`
 --
 
@@ -689,6 +679,33 @@ DROP TABLE IF EXISTS `vw_exibesubcategoriamenu`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vw_exibesubcategoriamenu` AS SELECT 
+ 1 AS `idSubCategoria`,
+ 1 AS `idCategoria`,
+ 1 AS `SubCategoria`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_sltcategoria`
+--
+
+DROP TABLE IF EXISTS `vw_sltcategoria`;
+/*!50001 DROP VIEW IF EXISTS `vw_sltcategoria`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_sltcategoria` AS SELECT 
+ 1 AS `idCategoria`,
+ 1 AS `Categoria`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_stsubcategoria`
+--
+
+DROP TABLE IF EXISTS `vw_stsubcategoria`;
+/*!50001 DROP VIEW IF EXISTS `vw_stsubcategoria`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_stsubcategoria` AS SELECT 
  1 AS `idSubCategoria`,
  1 AS `idCategoria`,
  1 AS `SubCategoria`*/;
@@ -825,6 +842,66 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_AtualizaProduto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_AtualizaProduto`(IN idProduto INT,IN idCategoria INT, IN idSubCategoria INT, IN produto varchar(80), IN foto varchar(200), IN precoProduto float)
+BEGIN
+	UPDATE tblhamburguer SET idTipoHamburguer = idCategoria, idSubTipoHamburguer = idSubCategoria, nomeHamburguer = produto, fotoHamburguer = foto, preco = precoProduto
+    WHERE idHamburguer = idProduto;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_InsereProduto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_InsereProduto`(IN idCategoria INT, IN idSubCategoria INT, IN produto varchar(80), IN foto varchar(200), IN preco float)
+BEGIN
+	
+    INSERT INTO tblhamburguer(idTipoHamburguer, idSubTipoHamburguer, nomeHamburguer, fotoHamburguer, preco)
+    VALUES(idCategoria, idSubCategoria, produto, foto, preco); 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sp_RemoveProduto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_RemoveProduto`(IN idProduto INT)
+BEGIN
+	DELETE FROM `tblhamburguer` WHERE `idHamburguer`= idProduto;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Final view structure for view `vm_consultalanchemes`
@@ -857,7 +934,25 @@ DELIMITER ;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vm_exibesitelanchemes` AS select `lm`.`idLancheMes` AS `ID`,`h`.`nomeHamburguer` AS `Lanche`,`h`.`fotoHamburguer` AS `Foto`,`lm`.`descricao` AS `Descrição`,`h`.`preco` AS `Preço`,ucase(`m`.`mes`) AS `Mês`,`lm`.`status` AS `Status` from ((`tblhamburguer` `h` join `tbllanchemes` `lm` on((`lm`.`idHamburguer` = `h`.`idHamburguer`))) join `tblmes` `m` on((`m`.`idMes` = `lm`.`idMes`))) where (`lm`.`status` = 1) order by `m`.`idMes` */;
+/*!50001 VIEW `vm_exibesitelanchemes` AS select `lm`.`idLancheMes` AS `ID`,`h`.`nomeHamburguer` AS `Lanche`,`h`.`fotoHamburguer` AS `Foto`,`lm`.`descricao` AS `Descrição`,`h`.`preco` AS `Preço`,upper(`m`.`mes`) AS `Mês`,`lm`.`status` AS `Status` from ((`tblhamburguer` `h` join `tbllanchemes` `lm` on((`lm`.`idHamburguer` = `h`.`idHamburguer`))) join `tblmes` `m` on((`m`.`idMes` = `lm`.`idMes`))) where (`lm`.`status` = 1) order by `m`.`idMes` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_consultaproduto`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_consultaproduto`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_consultaproduto` AS select `h`.`idHamburguer` AS `idProduto`,`h`.`idTipoHamburguer` AS `idCategoria`,`h`.`idSubTipoHamburguer` AS `idSubCategoria`,`h`.`nomeHamburguer` AS `Produto`,`c`.`categoriaHamburguer` AS `Categoria`,`sc`.`nomeSubTipoHamburguer` AS `SubCategoria`,`h`.`fotoHamburguer` AS `Foto`,`h`.`preco` AS `Preço` from ((`tblhamburguer` `h` join `tbltipohamburguer` `c` on((`c`.`idTipoHamburguer` = `h`.`idTipoHamburguer`))) join `tblsubtipohamburguer` `sc` on((`sc`.`idSubTipoHamburguer` = `h`.`idSubTipoHamburguer`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -969,6 +1064,42 @@ DELIMITER ;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_sltcategoria`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_sltcategoria`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_sltcategoria` AS select `c`.`idTipoHamburguer` AS `idCategoria`,`c`.`categoriaHamburguer` AS `Categoria` from `tbltipohamburguer` `c` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_stsubcategoria`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_stsubcategoria`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_stsubcategoria` AS select `st`.`idSubTipoHamburguer` AS `idSubCategoria`,`st`.`idTipoHamburguer` AS `idCategoria`,`st`.`nomeSubTipoHamburguer` AS `SubCategoria` from `tblsubtipohamburguer` `st` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -979,4 +1110,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-09 16:59:19
+-- Dump completed on 2017-06-12  0:43:19
