@@ -343,14 +343,14 @@ section{
 footer{
 	width:1261px;
 	height:120px;
-	margin-left:auto;
-	margin-right:auto;
 }
 #rodape{
 	width:1051px;
 	height:120px;
 	background-color:#161413;
 	float:left;
+	margin-top:-5px;
+	margin-left:315px;
 }
 .div_oculta_rodape{
 	width:100px;
@@ -1531,6 +1531,7 @@ footer{
 	font-size:50px;
 	color:#ce0000;
 }
+
 /**Formatação de Texto**/
 span{
 	text-align:center;

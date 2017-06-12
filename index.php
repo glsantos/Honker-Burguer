@@ -140,7 +140,7 @@
 							$idCategoria = $rsconsulta['idCategoria'];
 							$categoria = $rsconsulta['Categoria'];
 						?>
-						<li><a href="http://localhost/20171sem/inf3t/Lima/PROJETO/index.php?idCategoria=<?php echo($idCategoria);?>"><?php echo($categoria);?></a></li>
+						<li><a href="index.php?idCategoria=<?php echo($idCategoria);?>"><?php echo($categoria);?></a></li>
 						<?php
 						}
 						?>
